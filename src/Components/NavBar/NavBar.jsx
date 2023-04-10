@@ -28,7 +28,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div>
-                <Link to={'/home'}><button className='text-white text-sm  font-semibold px-2 py-2 rounded bg-gradient-to-r  from-blue-400 to-violet-500'>Star Applying</button></Link>
+                <Link to={'/home'}><button className='text-white text-lg  font-semibold px-2 py-2 rounded bg-gradient-to-r  from-blue-400 to-violet-500'>Star Applying</button></Link>
             </div>
         </div>
     );

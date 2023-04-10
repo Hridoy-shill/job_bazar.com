@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "quantity": 100,
+      "category": "Account & Finance",
+      "image": "https://i.ibb.co/3TL1L9S/accounts-1.png"
+    },
+    {
+      "id": 2,
+      "quantity": 550,
+      "category": "Creative Design",
+      "image": "https://i.ibb.co/p29FDtp/business-1.png"
+    },
+    {
+      "id": 3,
+      "quantity": 202,
+      "category": "Marketing & Sales",
+      "image": "https://i.ibb.co/4SNrqr4/social-media-1.png"
+    },
+    {
+      "id": 4,
+      "quantity": 300,
+      "category": "Engineering Job",
+      "image": "https://i.ibb.co/NTQwJrZ/chip-1.png"
+    }
+  ]
+  
