@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
 import JobCategorys from '../JobCategorys/JobCategorys';
+import Jobs from '../Jobs/Jobs';
 
 const Home = () => {
     
@@ -16,8 +17,13 @@ const Home = () => {
                     <img className='relative lg:top-5 lg:left-12 top-3 left-8' src="https://i.ibb.co/YXT8sMy/P3-OLGJ1-copy-1.png" alt="" />
                 </div>
             </div>
+
             <div>
                 <JobCategorys></JobCategorys>
+            </div>
+
+            <div>
+                <Jobs></Jobs>
             </div>
         </div>
     );
