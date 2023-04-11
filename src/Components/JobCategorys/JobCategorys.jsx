@@ -4,7 +4,7 @@ import SingleCategoryCard from '../SingleCategoryCard/SingleCategoryCard';
 
 const JobCategorys = () => {
     const categorys = useLoaderData();
-    console.log(categorys);
+    // console.log(categorys);
     return (
         <div className=''>
             <div className='text-center lg:mt-28 lg:mb-10 my-6 px-2'>
@@ -13,7 +13,7 @@ const JobCategorys = () => {
             </div>
             <div className='grid lg:grid-cols-4 lg:w-full w-2/3 mx-auto gap-5 lg:px-24 lg:py-5'>
                 {
-                    categorys.map(singleCategory => <SingleCategoryCard key={singleCategory.id} singleCategory={singleCategory}></SingleCategoryCard>)
+                    categorys.length && categorys?.map(singleCategory => <SingleCategoryCard key={singleCategory.id} singleCategory={singleCategory}></SingleCategoryCard>)
                 }
             </div>
         </div>

@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
         <div className='lg:flex justify-between items-center bg-gradient-to-r from-blue-50 to-blue-100 lg:px-24 lg:py-10 px-10 py-3'>
             <Link to={'/'}>
-                <h2 className='text-2xl font-bold'>JOB BAZAR<span className='text-xl font-extralight text-indigo-600'>.COM</span></h2>
+                <h2 className='text-3xl font-bold'>JOB BAZAR<span className='text-xl font-extralight text-indigo-600'>.COM</span></h2>
             </Link>
             <div className='my-5 lg:my-0'>
                 <ul className='lg:flex gap-7'>
