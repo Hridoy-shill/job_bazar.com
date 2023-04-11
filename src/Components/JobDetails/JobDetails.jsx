@@ -21,6 +21,12 @@ const JobDetails = () => {
     }, [value.id, jobData])
     console.log(job);
 
+
+    const handleAppliedJob = (id) =>{
+        console.log('clicked');
+        localStorage.setItem('Applied', JSON.stringify(id));
+    }
+
     const { id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle } = job || {};
 
     return (
@@ -39,21 +45,21 @@ const JobDetails = () => {
                     <p className='text-sm mb-5 font font-semibold text-slate-600'><span className='font-bold text-sm  text-black mr-2'>Experiences:</span><br />{educationalRequirements}</p>
                 </div>
                 <div className='border-2 bg-gradient-to-r from-indigo-100 to-blue-200 p-4 rounded'>
-                    <h3 className='border-b-2 font-bold border-zinc-700'>Job Details</h3>
-                    <div className='flex items-center my-1'>
+                    <h3 className='border-b-2 font-bold border-zinc-700 mb-5'>Job Details</h3>
+                    <div className='flex items-center my-2'>
                         <CurrencyDollarIcon className='h-5 w-5 text-gray-600'></CurrencyDollarIcon>
                         <p>{salary}</p>
                     </div>
-                    <div className='flex items-center mb-2'>
+                    <div className='flex items-center mb-5'>
                         <BriefcaseIcon className='h-5 w-5 text-gray-600'></BriefcaseIcon>
                         <p>Job Title: {jobTitle}</p>
                     </div>
-                    <h3 className='border-b-2 font-bold border-zinc-700'>Contact Information</h3>
-                    <div className='flex items-center my-1'>
+                    <h3 className='border-b-2 font-bold border-zinc-700 mb-5'>Contact Information</h3>
+                    <div className='flex items-center my-2'>
                         <PhoneIcon className='h-5 w-5 text-gray-600'></PhoneIcon>
                         <p>Phone: {phone}</p>
                     </div>
-                    <div className='flex items-center mb-1'>
+                    <div className='flex items-center mb-2'>
                         <EnvelopeIcon className='h-5 w-5 text-gray-600'></EnvelopeIcon>
                         <p>Email: {email}</p>
                     </div>
@@ -61,7 +67,7 @@ const JobDetails = () => {
                         <MapPinIcon className='h-5 w-5 text-gray-600'></MapPinIcon>
                         <p>Address: {location}</p>
                     </div>
-                    <button className='w-full text-white text-lg mt-5 font-semibold px-2 py-2 rounded bg-gradient-to-r  from-blue-400 to-violet-500'>Apply Now</button>
+                    <button onClick={()=>handleAppliedJob(id)} className='w-full text-white text-lg mt-5 font-semibold px-2 py-2 rounded bg-gradient-to-r  from-blue-400 to-violet-500'>Apply Now</button>
 
                 </div>
             </div>

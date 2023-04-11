@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleCategoryCard = ({singleCategory}) => {
-    console.log(singleCategory);
+    // console.log(singleCategory);
     const {quantity, category, image} = singleCategory;
     return (
         <div className='bg-gradient-to-r from-blue-100 to-blue-200  px-5 py-8 rounded text-center lg:text-left'>
