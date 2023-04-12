@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams, } from 'react-router-dom';
+import { json, useLoaderData, useParams, } from 'react-router-dom';
 import { MapPinIcon, CurrencyDollarIcon, BriefcaseIcon, PhoneIcon, EnvelopeIcon, } from '@heroicons/react/24/solid'
 
 const JobDetails = () => {
     const value = useParams()
-    console.log(value);
+    // console.log(value);
 
     const [jobData, setJobData] = useState([]);
     const [job, setJob] = useState([])
-
+    
     useEffect(() => {
         fetch('/JobsData.json')
             .then(res => res.json())
@@ -21,14 +21,35 @@ const JobDetails = () => {
     }, [value.id, jobData])
     console.log(job);
 
+    /* local storage */
+    const handleAppliedJob = (id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle, companyLogo, companyName, jobCategory, jobType) => {
 
-    const handleAppliedJob = (id) =>{
-        console.log('clicked');
-        localStorage.setItem('Applied', JSON.stringify(id));
+        let appliedJobs = [];
+
+        const appliedJobData = { id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle, companyLogo, companyName, jobCategory, jobType};
+
+        const previousAppliedJobs = JSON.parse(localStorage.getItem('Applied jobs'));
+
+        if (previousAppliedJobs) {
+            const isExist = previousAppliedJobs.find(job => job.id == id);
+            if (isExist) {
+                console.log('akta tost dekaw');
+            }
+            else {
+                appliedJobs.push(...previousAppliedJobs, appliedJobData)
+                localStorage.setItem("Applied jobs", JSON.stringify(appliedJobs));
+                console.log(appliedJobs);
+            }
+        }
+        else {
+            appliedJobs.push(appliedJobData)
+            localStorage.setItem("Applied jobs", JSON.stringify(appliedJobs));
+
+        }
     }
 
-    const { id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle } = job || {};
-
+    const { id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle, companyLogo, companyName, jobCategory, jobType} = job || {};
+    
     return (
         <div>
             <div className='bg-gradient-to-r from-blue-50 to-blue-100 h-40'>
@@ -42,7 +63,7 @@ const JobDetails = () => {
                     <p className='text-sm mb-5 font font-semibold text-slate-600'><span className='font-bold text-sm text-black mr-2'>Job Description:</span>{jobDescription}</p>
                     <p className='text-sm mb-5 font font-semibold text-slate-600'><span className='font-bold text-sm  text-black mr-2'>Job Responsibility:</span>{jobResponsibility}</p>
                     <p className='text-sm mb-5 font font-semibold text-slate-600'><span className='font-bold text-sm text-black mr-2'>Educational Requirements:</span><br />{educationalRequirements}</p>
-                    <p className='text-sm mb-5 font font-semibold text-slate-600'><span className='font-bold text-sm  text-black mr-2'>Experiences:</span><br />{educationalRequirements}</p>
+                    <p className='text-sm mb-5 font font-semibold text-slate-600'><span className='font-bold text-sm  text-black mr-2'>Experiences:</span><br />{experiences}</p>
                 </div>
                 <div className='border-2 bg-gradient-to-r from-indigo-100 to-blue-200 p-4 rounded'>
                     <h3 className='border-b-2 font-bold border-zinc-700 mb-5'>Job Details</h3>
@@ -67,7 +88,7 @@ const JobDetails = () => {
                         <MapPinIcon className='h-5 w-5 text-gray-600'></MapPinIcon>
                         <p>Address: {location}</p>
                     </div>
-                    <button onClick={()=>handleAppliedJob(id)} className='w-full text-white text-lg mt-5 font-semibold px-2 py-2 rounded bg-gradient-to-r  from-blue-400 to-violet-500'>Apply Now</button>
+                    <button onClick={() => handleAppliedJob(id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle, companyLogo, companyName, jobCategory, jobType)} className='w-full text-white text-lg mt-5 font-semibold px-2 py-2 rounded bg-gradient-to-r  from-blue-400 to-violet-500'>Apply Now</button>
 
                 </div>
             </div>
