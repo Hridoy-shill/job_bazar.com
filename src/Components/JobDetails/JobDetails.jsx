@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { json, useLoaderData, useParams, } from 'react-router-dom';
 import { MapPinIcon, CurrencyDollarIcon, BriefcaseIcon, PhoneIcon, EnvelopeIcon, } from '@heroicons/react/24/solid'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const JobDetails = () => {
     const value = useParams()
@@ -33,12 +35,12 @@ const JobDetails = () => {
         if (previousAppliedJobs) {
             const isExist = previousAppliedJobs.find(job => job.id == id);
             if (isExist) {
-                console.log('akta tost dekaw');
+                toast('All applied added ❌')
             }
             else {
+                toast('Applied successful ✅')
                 appliedJobs.push(...previousAppliedJobs, appliedJobData)
                 localStorage.setItem("Applied jobs", JSON.stringify(appliedJobs));
-                console.log(appliedJobs);
             }
         }
         else {
@@ -89,7 +91,7 @@ const JobDetails = () => {
                         <p>Address: {location}</p>
                     </div>
                     <button onClick={() => handleAppliedJob(id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle, companyLogo, companyName, jobCategory, jobType)} className='w-full text-white text-lg mt-5 font-semibold px-2 py-2 rounded bg-gradient-to-r  from-blue-400 to-violet-500'>Apply Now</button>
-
+                    <ToastContainer />
                 </div>
             </div>
         </div>
