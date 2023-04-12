@@ -8,7 +8,7 @@ const AppliedJob = ({ job }) => {
         <div className='flex justify-between items-center shadow-lg lg:mx-24 lg:my-10 lg:px-5 mx-10 my-3'>
             <div className='grid grid-cols-3 items-center'>
                 <img className='w-60' src={companyLogo} alt="" />
-                <div className='col-span-2'>
+                <div className='col-span-2 ms-3'>
                     <p className='text-lg font-bold'>{jobTitle}</p>
                     <p className='font-semibold text-gray-500 my-2'>{companyName}</p>
                     <div className='flex mb-2'>

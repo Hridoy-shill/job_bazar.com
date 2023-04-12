@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const JobDetails = () => {
     const value = useParams()
-    // console.log(value);
 
     const [jobData, setJobData] = useState([]);
     const [job, setJob] = useState([])
@@ -16,12 +15,10 @@ const JobDetails = () => {
             .then(res => res.json())
             .then(data => setJobData(data))
     }, [])
-    // console.log(jobData);
 
     useEffect(() => {
         setJob(jobData.find(job => job.id == value.id))
     }, [value.id, jobData])
-    console.log(job);
 
     /* local storage */
     const handleAppliedJob = (id, educationalRequirements, email, experiences, jobDescription, jobResponsibility, phone, salary, location, jobTitle, companyLogo, companyName, jobCategory, jobType) => {
