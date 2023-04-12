@@ -32,7 +32,7 @@ const JobDetails = () => {
         if (previousAppliedJobs) {
             const isExist = previousAppliedJobs.find(job => job.id == id);
             if (isExist) {
-                toast('All applied added ❌')
+                toast('All ready applied ❌')
             }
             else {
                 toast('Applied successful ✅')
